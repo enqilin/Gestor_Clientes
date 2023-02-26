@@ -30,7 +30,10 @@ def iniciar():
             print("Buscando un cliente...\n")
             dni = helpers.leer_texto(3, 3, "DNI (2 int y 1 char)").upper()
             cliente = db.Clientes.buscar(dni)
-            print(cliente) if cliente else print("Cliente no encontrado.")
+            if cliente:
+                print(cliente) 
+            else: 
+                print("Cliente no encontrado.")
 
         elif opcion == '3':
             print("Añadiendo un cliente...\n")
@@ -63,8 +66,10 @@ def iniciar():
         elif opcion == '5':
             print("Borrando un cliente...\n")
             dni = helpers.leer_texto(3, 3, "DNI (2 int y 1 char)").upper()
-            print("Cliente borrado correctamente.") if db.Clientes.borrar(
-                dni) else print("Cliente no encontrado.")
+            if db.Clientes.borrar(dni): 
+                print("Cliente borrado correctamente.")
+            else: 
+                print("Cliente no encontrado.")
 
         elif opcion == '6':
             print("Saliendo...\n")
